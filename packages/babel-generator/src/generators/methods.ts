@@ -13,12 +13,13 @@ export function _params(
 ) {
   this.print(node.typeParameters, node);
 
+  this.token("(");
+
   const nameInfo = _getFuncIdName.call(this, idNode, parentNode);
   if (nameInfo) {
     this.sourceIdentifierName(nameInfo.name, nameInfo.pos);
   }
-
-  this.token("(");
+  
   this._parameters(node.params, node);
   this.token(")");
 
